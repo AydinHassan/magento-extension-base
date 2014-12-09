@@ -1,0 +1,8 @@
+<config>
+    <modules>
+        <__VENDOR_____NAMESPACE__>
+            <active>true</active>
+            <codePool>__CODEPOOL__</codePool>
+        </__VENDOR_____NAMESPACE__>
+    </modules>
+</config>

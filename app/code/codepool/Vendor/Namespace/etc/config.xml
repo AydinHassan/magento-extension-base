@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+
+<config>
+    <modules>
+        <__VENDOR_____NAMESPACE__>
+            <version>0.1.0</version>
+        </__VENDOR_____NAMESPACE__>
+    </modules>
+    <global>
+        <blocks>
+            <__VENDOR_LC_____NAMESPACE_LC__>
+                <class>__VENDOR_____NAMESPACE___Block</class>
+            </__VENDOR_LC_____NAMESPACE_LC__>
+        </blocks>
+        <helpers>
+            <__VENDOR_LC_____NAMESPACE_LC__>
+                <class>__VENDOR_____NAMESPACE___Helper</class>
+            </__VENDOR_LC_____NAMESPACE_LC__>
+        </helpers>
+        <models>
+            <__VENDOR_LC_____NAMESPACE_LC__>
+                <class>__VENDOR_____NAMESPACE___Model</class>
+            </__VENDOR_LC_____NAMESPACE_LC__>
+        </models>
+    </global>
+
+    <!-- frontend layout updates -->
+    <frontend>
+        <layout>
+            <updates>
+                <__VENDOR_LC_____NAMESPACE_LC__>
+                    <file>__VENDOR_LC__/__NAMESPACE_LC__.xml</file>
+                </__VENDOR_LC_____NAMESPACE_LC__>
+            </updates>
+        </layout>
+    </frontend>
+
+    <!-- adminhtml layout updates -->
+    <adminhtml>
+        <layout>
+            <updates>
+                <__VENDOR_LC_____NAMESPACE_LC__>
+                    <file>__VENDOR_LC__/__NAMESPACE_LC__.xml</file>
+                </__VENDOR_LC_____NAMESPACE_LC__>
+            </updates>
+        </layout>
+    </adminhtml>
+</config>

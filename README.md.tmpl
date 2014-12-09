@@ -1,0 +1,23 @@
+# {{NAME}}
+
+{{DESCRIPTION}}
+
+## Installation
+
+This module is installable via `Composer`. If you have used the Magento Skeleton as a base module then you can just require this project and all the rest is done for you.
+
+Note: As these repositories are currently private and not available via a public pakage list like [Packagist](https://packagist.org/) Or [Firegento](http://packages.firegento.com) you need to add the repository to the projects `composer.json` before you require the project.
+
+```
+"repositories": [
+    {
+        "type": "vcs",
+        "url": "{{REPO}}"
+    }
+],
+```
+
+```
+$ cd {{REPOFOLDER}}
+$ composer require "{{PACKAGENAME}}"
+```
