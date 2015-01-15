@@ -54,12 +54,9 @@ $cleanUp = function () {
 $createReadme = function ($projectName, $repositoryUrl, $description) {
     unlink('README.md');
     $readMe = file_get_contents('README.md.tmpl');
-    preg_match('/\/([a-z_\-\d]+).git$/', $repositoryUrl, $matches);
-    $repoFolder = $matches[1];
 
     $readMe = str_replace("{{NAME}}", $projectName, $readMe);
     $readMe = str_replace("{{REPO}}", $repositoryUrl, $readMe);
-    $readMe = str_replace("{{REPOFOLDER}}", $repoFolder, $readMe);
     $readMe = str_replace("{{PACKAGENAME}}", $projectName, $readMe);
     $readMe = str_replace("{{DESCRIPTION}}", $description, $readMe);
 
@@ -151,9 +148,9 @@ $buildCodeStructure = function ($vendor, $nameSpace, $codePool) {
 };
 
 $buildDesignStructure = function ($vendor, $nameSpace) {
-    $layoutFolder = 'app/design/frontend/base/default/layout/' . strtolower($vendor);
+    $layoutFolder   = 'app/design/frontend/base/default/layout/' . strtolower($vendor);
     $templateFolder = 'app/design/frontend/base/default/template/' . strtolower($vendor) . '/' . strtolower($nameSpace);
-    $skinJsFolder = 'skin/frontend/base/default/js/' . strtolower($vendor) . '/' . strtolower($nameSpace);
+    $skinJsFolder   = 'skin/frontend/base/default/js/' . strtolower($vendor) . '/' . strtolower($nameSpace);
 
     mkdir($layoutFolder, 0777, true);
     mkdir($templateFolder, 0777, true);
@@ -163,9 +160,15 @@ $buildDesignStructure = function ($vendor, $nameSpace) {
     unlink('skin/frontend/base/default/js/.gitkeep');
 };
 
+$buildTestStructure = function ($nameSpace) {
+    $testDir        = 'test/__NAMESPACE__';
+    $destination    = str_replace('__NAMESPACE__', strtolower($nameSpace), $testDir);
+    rename($testDir, $destination);
+};
+
 $projectName = $askQuestion("Project Name", function ($result) {
     if (!preg_match('/^[a-z][a-z\-]*[a-z]\/[a-z][a-z\-]*[a-z]$/', $result)) {
-        throw new Exception("Project name should be lowercase, dash separated");
+        throw new Exception("Project name should be lowercase, slash separated e.g. jhhello/social");
     }
 });
 
@@ -187,8 +190,9 @@ $updateComposerFile($projectName, $description, $vendor, $nameSpace);
 $buildConfig($vendor, $nameSpace, $codePool);
 $buildCodeStructure($vendor, $nameSpace, $codePool);
 $buildDesignStructure($vendor, $nameSpace);
+$buildTestStructure($nameSpace);
 $createReadme($projectName, $repositoryUrl, $description);
 $cleanUp();
 $initGit($repositoryUrl);
 
-echo "n\033[30;42mDONE!\033[39;49m\n\n";
+echo "\n\033[30;42mDONE!\033[39;49m\n\n";
