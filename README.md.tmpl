@@ -6,7 +6,7 @@
 
 This module is installable via `Composer`. If you have used the Magento Skeleton as a base module then you can just require this project and all the rest is done for you.
 
-Note: As these repositories are currently private and not available via a public pakage list like [Packagist](https://packagist.org/) Or [Firegento](http://packages.firegento.com) you need to add the repository to the projects `composer.json` before you require the project.
+Note: As these repositories are currently private and not available via a public package list like [Packagist](https://packagist.org/) Or [Firegento](http://packages.firegento.com) you need to add the repository to the projects `composer.json` before you require the project.
 
 ```
 "repositories": [
@@ -18,6 +18,16 @@ Note: As these repositories are currently private and not available via a public
 ```
 
 ```
-$ cd {{REPOFOLDER}}
 $ composer require "{{PACKAGENAME}}"
 ```
+
+## Running Tests
+
+```
+$ cd vendor/{{PACKAGENAME}}
+$ composer install
+$ vendor/bin/phpunit
+
+```
+----
+*__Note:__ All the above commands assume you're in your projects root dir to start with*
