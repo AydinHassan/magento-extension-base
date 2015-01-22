@@ -20,7 +20,7 @@
     "extra": {
         "map": [
             ["app/code/community/__VENDOR__/__NAMESPACE__", "app/code/community/__VENDOR__/__NAMESPACE__"],
-            ["app/etc/modules/__VENDOR____NAMESPACE__.xml", "app/etc/modules/__VENDOR____NAMESPACE__.xml"],
+            ["app/etc/modules/__VENDOR_____NAMESPACE__.xml", "app/etc/modules/__VENDOR_____NAMESPACE__.xml"],
             ["app/design/frontend/base/default/layout/__VENDOR_LAYOUT__/*", "app/design/frontend/base/default/layout/__VENDOR_LAYOUT__/"],
             ["app/design/frontend/base/default/template/__VENDOR_TEMPLATE__/*", "app/design/frontend/base/default/template/__VENDOR_TEMPLATE__/"],
             ["skin/frontend/base/default/js/__VENDOR_JS__/__NAMESPACE_JS__/*", "skin/frontend/base/default/js/__VENDOR_JS__/__NAMESPACE_JS__/"]
