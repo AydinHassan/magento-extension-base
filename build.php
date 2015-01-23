@@ -148,15 +148,32 @@ $buildCodeStructure = function ($vendor, $nameSpace, $codePool) {
 };
 
 $buildDesignStructure = function ($vendor, $nameSpace) {
-    $layoutFolder   = 'app/design/frontend/base/default/layout/' . strtolower($vendor);
-    $templateFolder = 'app/design/frontend/base/default/template/' . strtolower($vendor) . '/' . strtolower($nameSpace);
-    $skinJsFolder   = 'skin/frontend/base/default/js/' . strtolower($vendor) . '/' . strtolower($nameSpace);
 
-    mkdir($layoutFolder, 0777, true);
-    mkdir($templateFolder, 0777, true);
-    mkdir($skinJsFolder, 0777, true);
+    $layoutDirs = [
+        "frontend" => 'app/design/frontend/base/default/layout/' . strtolower($vendor),
+        "adminhtml" => 'app/design/adminhtml/base/default/layout/' . strtolower($vendor)
+    ];
+
+    $templateDirs = [
+        "frontend" => 'app/design/frontend/base/default/template/' . strtolower($vendor) . '/' . strtolower($nameSpace),
+        "adminhtml" => 'app/design/adminhtml/base/default/template/' . strtolower($vendor) . '/' . strtolower($nameSpace),
+    ];
+
+    foreach ($layoutDirs as $layoutDir) {
+        mkdir($layoutDir, 0777, true);
+    }
+
+    foreach ($templateDirs as $templateDir) {
+        mkdir($templateDir, 0777, true);
+    }
+
     unlink('app/design/frontend/base/default/layout/.gitkeep');
+    unlink('app/design/adminhtml/base/default/layout/.gitkeep');
     unlink('app/design/frontend/base/default/template/.gitkeep');
+    unlink('app/design/adminhtml/base/default/template/.gitkeep');
+
+    $skinJsFolder   = 'skin/frontend/base/default/js/' . strtolower($vendor) . '/' . strtolower($nameSpace);
+    mkdir($skinJsFolder, 0777, true);
     unlink('skin/frontend/base/default/js/.gitkeep');
 };
 

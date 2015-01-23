@@ -14,6 +14,51 @@ First, create a repository for your extension, then run the following commands:
 Follow the instructions and that's it!, an initial commit will be made for your and your remote added. You can then
 run `git push` whenever you are ready.
 
+## Module Structure
+After following the setup the module created will have the following structure.
+```
+├── LICENSE
+├── README.md
+├── app
+│   ├── code
+│   │   └── community
+│   │       └── AydinHassan
+│   │           └── Parrot
+│   │               ├── Block
+│   │               ├── Helper
+│   │               ├── controllers
+│   │               ├── etc
+│   │               │   └── config.xml
+│   │               └── sql
+│   │                   └── aydinhassan_parrot_setup
+│   ├── design
+│   │   └── frontend
+│   │       └── base
+│   │           └── default
+│   │               ├── layout
+│   │               │   └── aydinhassan
+│   │               └── template
+│   │                   └── aydinhassan
+│   │                       └── parrot
+│   └── etc
+│       └── modules
+│           └── AydinHassan_Parrot.xml
+├── composer.json
+├── composer.lock
+├── phpunit.xml
+├── skin
+│   └── frontend
+│       └── base
+│           └── default
+│               └── js
+│                   └── aydinhassan
+│                       └── parrot
+└── test
+    ├── bootstrap.php
+    └── parrot
+        └── DemoTest.php
+```
+
 ## Unit Tests
 
 We are using [Aspect Mock](https://github.com/Codeception/AspectMock) which uses [Go! AOP](https://github.com/lisachenko/go-aop-php) 
