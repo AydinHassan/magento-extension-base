@@ -167,15 +167,21 @@ $buildTestStructure = function ($nameSpace) {
     rename($testDir, $destination);
 };
 
-$projectName = $askQuestion("Project Name", function ($result) {
+$projectName = $askQuestion("Composer Package Name (e.g. wearejh/social)", function ($result) {
     if (!preg_match('/^[a-z][a-z\-]*[a-z]\/[a-z][a-z\-]*[a-z]$/', $result)) {
-        throw new Exception("Project name should be lowercase, slash separated e.g. jhhello/social");
+        throw new Exception("Project name should be lowercase, slash separated e.g. wearejh/social");
     }
 });
 
-$parts      = explode("/", $projectName);
-$vendor     = implode('', array_map('ucfirst', explode("-", $parts[0])));
-$nameSpace  = implode('', array_map('ucfirst', explode("-", $parts[1])));
+$moduleName = $askQuestion("Module name (e.g Jh/Social)", function ($result) {
+   if (!preg_match('/^[A-Z][a-zA-Z]*\/[A-Z][a-zA-Z]*$/', $result)) {
+       throw new Exception("Module name should be PascalCased and slash separated e.g Jh/Social");
+   }
+});
+
+$parts      = explode("/", $moduleName);
+$vendor     = $parts[0];
+$nameSpace  = $parts[1];
 
 $description = $askQuestion("Description");
 
