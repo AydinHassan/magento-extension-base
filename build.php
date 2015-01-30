@@ -22,9 +22,10 @@ $writeJson = function ($fileName, array $data) {
     file_put_contents($fileName, json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES));
 };
 
-$updateComposerFile = function ($projectName, $description, $vendor, $nameSpace) {
+$updateComposerFile = function ($projectName, $description, $vendor, $nameSpace, $codePool) {
     $content = file_get_contents('composer.json');
 
+    $content = str_replace('__CODEPOOL__', $codePool, $content);
     $content = str_replace('__VENDOR__', $vendor, $content);
     $content = str_replace('__NAMESPACE__', $nameSpace, $content);
     $content = str_replace('__VENDOR_LAYOUT__', strtolower($vendor), $content);
@@ -186,7 +187,7 @@ $repositoryUrl = $askQuestion("Repository URL", function ($result) {
 
 $codePool = $askQuestionWithOptions(array('local', 'community'), 'Code Pool');
 
-$updateComposerFile($projectName, $description, $vendor, $nameSpace);
+$updateComposerFile($projectName, $description, $vendor, $nameSpace, $codePool);
 $buildConfig($vendor, $nameSpace, $codePool);
 $buildCodeStructure($vendor, $nameSpace, $codePool);
 $buildDesignStructure($vendor, $nameSpace);
