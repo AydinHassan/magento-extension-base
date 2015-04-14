@@ -26,12 +26,21 @@ After following the setup the module created will have the following structure.
 │   │           └── Parrot
 │   │               ├── Block
 │   │               ├── Helper
+│   │               ├── Model
 │   │               ├── controllers
 │   │               ├── etc
 │   │               │   └── config.xml
 │   │               └── sql
 │   │                   └── aydinhassan_parrot_setup
 │   ├── design
+│   │   ├── adminhtml
+│   │   │   └── default
+│   │   │       └── default
+│   │   │           ├── layout
+│   │   │           │   └── aydinhassan
+│   │   │           └── template
+│   │   │               └── aydinhassan
+│   │   │                   └── parrot
 │   │   └── frontend
 │   │       └── base
 │   │           └── default
