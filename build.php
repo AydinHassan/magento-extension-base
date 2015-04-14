@@ -137,7 +137,14 @@ $buildCodeStructure = function ($vendor, $nameSpace, $codePool) {
     rmdir(dirname($from));
     rmdir(dirname(dirname($from)));
 
-    $folders = array('Block', 'controllers', 'Helper', 'sql/__VENDOR_____NAMESPACE___setup');
+    $folders = [
+        'Block',
+        'controllers',
+        'Helper',
+        'Model',
+        'sql/__VENDOR_____NAMESPACE___setup'
+    ];
+
     foreach ($folders as $folder) {
         unlink("$to/$folder/.gitkeep");
     }
@@ -152,12 +159,12 @@ $buildDesignStructure = function ($vendor, $nameSpace) {
 
     $layoutDirs = [
         "frontend" => 'app/design/frontend/base/default/layout/' . strtolower($vendor),
-        "adminhtml" => 'app/design/adminhtml/base/default/layout/' . strtolower($vendor)
+        "adminhtml" => 'app/design/adminhtml/default/default/layout/' . strtolower($vendor)
     ];
 
     $templateDirs = [
         "frontend" => 'app/design/frontend/base/default/template/' . strtolower($vendor) . '/' . strtolower($nameSpace),
-        "adminhtml" => 'app/design/adminhtml/base/default/template/' . strtolower($vendor) . '/' . strtolower($nameSpace),
+        "adminhtml" => 'app/design/adminhtml/default/default/template/' . strtolower($vendor) . '/' . strtolower($nameSpace),
     ];
 
     foreach ($layoutDirs as $layoutDir) {
@@ -169,9 +176,9 @@ $buildDesignStructure = function ($vendor, $nameSpace) {
     }
 
     unlink('app/design/frontend/base/default/layout/.gitkeep');
-    unlink('app/design/adminhtml/base/default/layout/.gitkeep');
+    unlink('app/design/adminhtml/default/default/layout/.gitkeep');
     unlink('app/design/frontend/base/default/template/.gitkeep');
-    unlink('app/design/adminhtml/base/default/template/.gitkeep');
+    unlink('app/design/adminhtml/default/default/template/.gitkeep');
 
     $skinJsFolder   = 'skin/frontend/base/default/js/' . strtolower($vendor) . '/' . strtolower($nameSpace);
     mkdir($skinJsFolder, 0777, true);
