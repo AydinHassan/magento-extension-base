@@ -10,4 +10,12 @@ $kernel->init([
     'excludePaths' => [__DIR__]
 ]);
 
-Mage::app();
+//bootstrap Magento - eugrh
+\Mage::app('admin');
+foreach (spl_autoload_functions() as $autoloader) {
+    if (is_array($autoloader) && $autoloader[0] instanceof Varien_Autoload) {
+        spl_autoload_unregister($autoloader);
+    }
+}
+//get rid of magento error handler as it swallows errors
+restore_error_handler();
